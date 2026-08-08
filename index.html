@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ممدوح | مهندس برمجيات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- شريط علوي أنيق لزر تبديل اللغة -->
+    <div class="container" style="padding-bottom: 0; display: flex; justify-content: flex-end;">
+        <button id="lang-toggle-btn" class="btn btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; border-color: rgba(255,255,255,0.1);">
+            <i class="fa-solid fa-globe" style="color:var(--primary-neon);"></i> English
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="container hero">
+      
+        <h1 data-ar="ممدوح" data-en="Mamdouh">ممدوح</h1>
+        <h2 data-ar="مهندس برمجيات" data-en="Software Engineer">مهندس برمجيات </h2>
+        <p data-ar="مهتم ببناء الأنظمة البرمجية الحديثة، والمواقع الإلكترونية عالية الأداء مع التركيز على كود نظيف وتجربة مستخدم سلسة." data-en="Passionate about building modern software systems and high-performance web applications focused on clean code & seamless UX.">مهتم ببناء الأنظمة البرمجية الحديثة، والمواقع الإلكترونية عالية الأداء مع التركيز على كود نظيف وتجربة مستخدم سلسة.</p>
+        
+        <div class="hero-actions">
+            <a id="cv-download-btn" href="CV_Mamdouh.pdf" download class="btn btn-primary">
+                <i class="fa-solid fa-file-arrow-down"></i> <span data-ar="تحميل السيرة الذاتية" data-en="Download CV">تحميل السيرة الذاتية</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+                <i class="fa-solid fa-paper-plane"></i> <span data-ar="تواصل معي" data-en="Contact Me">تواصل معي</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- المشاريع -->
+    <section class="container">
+        <h2 class="section-title"><i class="fa-solid fa-code"></i> <span data-ar="المشاريع البرمجية" data-en="Software Projects">المشاريع البرمجية</span></h2>
+        <div class="projects-grid" id="projects-container">
+            <!-- تُجلب ديناميكياً -->
+        </div>
+    </section>
+
+    <!-- الدورات والشهادات -->
+    <section class="container">
+        <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> <span data-ar="الدورات والشهادات" data-en="Courses & Certifications">الدورات والشهادات</span></h2>
+        <div class="courses-list" id="courses-container">
+            <!-- تُجلب ديناميكياً -->
+        </div>
+    </section>
+
+    <!-- التواصل -->
+    <footer id="contact" class="container">
+        <h2 class="section-title"><i class="fa-solid fa-address-card"></i> <span data-ar="معلومات التواصل" data-en="Contact Information">معلومات التواصل</span></h2>
+        <div class="contact-grid">
+            <a href="tel:+966555234785" class="contact-card">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <span style="display:block; font-size:0.75rem; color:var(--text-muted);" data-ar="الجوال" data-en="Phone">الجوال</span>
+                    <strong>+966 55 523 4785</strong>
+                </div>
+            </a>
+            <a href="mailto:mmdoh4785@gmail.com" class="contact-card">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <span style="display:block; font-size:0.75rem; color:var(--text-muted);" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</span>
+                    <strong>mmdoh4785@gmail.com</strong>
+                </div>
+            </a>
+            <a href="https://www.linkedin.com/in/mamdouh-assal/" target="_blank" class="contact-card">
+                <i class="fa-brands fa-linkedin"></i>
+                <div>
+                    <span style="display:block; font-size:0.75rem; color:var(--text-muted);" data-ar="شبكة الأعمال" data-en="Network">شبكة الأعمال</span>
+                    <strong data-ar="حساب LinkedIn" data-en="LinkedIn Profile">حساب LinkedIn</strong>
+                </div>
+            </a>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
