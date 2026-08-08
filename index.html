@@ -4,79 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ممدوح | مهندس برمجيات</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <!-- خطوط عالمية استثنائية: IBM Plex Sans Arabic + JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- شريط علوي أنيق لزر تبديل اللغة -->
-    <div class="container" style="padding-bottom: 0; display: flex; justify-content: flex-end;">
-        <button id="lang-toggle-btn" class="btn btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; border-color: rgba(255,255,255,0.1);">
-            <i class="fa-solid fa-globe" style="color:var(--primary-neon);"></i> English
-        </button>
-    </div>
+    <!-- شريط التنقل العلوي Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">MAMDOUH<span>.SWE</span></a>
+            <div class="nav-links">
+                <a href="#projects" data-ar="المشاريع" data-en="Projects">المشاريع</a>
+                <a href="#courses" data-ar="الشهادات" data-en="Certificates">الشهادات</a>
+                <a href="#contact" data-ar="التواصل" data-en="Contact">التواصل</a>
+            </div>
+            <button id="lang-toggle-btn" class="lang-btn">
+                <i class="fa-solid fa-globe"></i> <span>English</span>
+            </button>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <header class="container hero">
-      
+
+        
         <h1 data-ar="ممدوح" data-en="Mamdouh">ممدوح</h1>
-        <h2 data-ar="مهندس برمجيات" data-en="Software Engineer">مهندس برمجيات </h2>
-        <p data-ar="مهتم ببناء الأنظمة البرمجية الحديثة، والمواقع الإلكترونية عالية الأداء مع التركيز على كود نظيف وتجربة مستخدم سلسة." data-en="Passionate about building modern software systems and high-performance web applications focused on clean code & seamless UX.">مهتم ببناء الأنظمة البرمجية الحديثة، والمواقع الإلكترونية عالية الأداء مع التركيز على كود نظيف وتجربة مستخدم سلسة.</p>
+        <h2 data-ar="مهندس برمجيات متعدّد التقنيات" data-en="Software Engineer & Solution Architect">مهندس برمجيات متعدّد التقنيات</h2>
+        
+        <p class="hero-bio" data-ar="مهندس برمجيات ، خريج جامعة حائل. مهتم بتطوير الحلول البرمجية وبناء الأنظمة باستخدام تقنيات مثل PHP و Laravel وإدارة قواعد البيانات (MySQL). أدمج بين مهاراتي البرمجية وخبرتي في إعداد البنية التحتية للأنظمة لتقديم مشاريع متكاملة." data-en="I am a Software Engineer, graduated from the University of Hail. I'm passionate about developing software solutions and building systems using technologies like PHP, Laravel, and MySQL. I combine my coding skills with my experience in setting up IT infrastructure to deliver complete, end-to-end projects.">مهندس برمجيات ، خريج جامعة حائل. مهتم بتطوير الحلول البرمجية وبناء الأنظمة باستخدام تقنيات مثل PHP و Laravel وإدارة قواعد البيانات (MySQL). أدمج بين مهاراتي البرمجية وخبرتي في إعداد البنية التحتية للأنظمة لتقديم مشاريع متكاملة..</p>
+
+        <!-- وسوم التقنيات Tech Stack -->
+        <div class="tech-stack">
+            <span class="tag">PHP / MySQL</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">Software Architecture</span>
+            <span class="tag">Software Testing</span>
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">UML</span>
+        </div>
         
         <div class="hero-actions">
             <a id="cv-download-btn" href="CV_Mamdouh.pdf" download class="btn btn-primary">
-                <i class="fa-solid fa-file-arrow-down"></i> <span data-ar="تحميل السيرة الذاتية" data-en="Download CV">تحميل السيرة الذاتية</span>
+                <i class="fa-solid fa-arrow-down-long"></i> <span data-ar="تحميل السيرة الذاتية" data-en="Download Resume">تحميل السيرة الذاتية</span>
             </a>
             <a href="#contact" class="btn btn-secondary">
-                <i class="fa-solid fa-paper-plane"></i> <span data-ar="تواصل معي" data-en="Contact Me">تواصل معي</span>
+                <span data-ar="تواصل معي" data-en="Get in Touch">تواصل معي</span>
             </a>
         </div>
     </header>
 
-    <!-- المشاريع -->
-    <section class="container">
-        <h2 class="section-title"><i class="fa-solid fa-code"></i> <span data-ar="المشاريع البرمجية" data-en="Software Projects">المشاريع البرمجية</span></h2>
+    <!-- قسم المشاريع -->
+    <section id="projects" class="container">
+        <div class="section-header">
+            <h2 class="section-title" data-ar="المشاريع المحددة" data-en="Featured Projects">المشاريع المحددة</h2>
+            <span class="section-sub" data-ar="أعمال برمجية تم بناؤها بكود نظيف" data-en="Handcrafted dynamic software applications">أعمال برمجية تم بناؤها بكود نظيف</span>
+        </div>
         <div class="projects-grid" id="projects-container">
-            <!-- تُجلب ديناميكياً -->
+            <!-- تُجلب ديناميكياً من قواعد البيانات -->
         </div>
     </section>
 
-    <!-- الدورات والشهادات -->
-    <section class="container">
-        <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> <span data-ar="الدورات والشهادات" data-en="Courses & Certifications">الدورات والشهادات</span></h2>
+    <!-- قسم الشهادات -->
+    <section id="courses" class="container">
+        <div class="section-header">
+            <h2 class="section-title" data-ar="الشهادات والدورات" data-en="Certifications & Learning">الشهادات والدورات</h2>
+            <span class="section-sub" data-ar="التطوير المهني والاعتمادات الأكاديمية" data-en="Professional growth and verified credentials">التطوير المهني والاعتمادات الأكاديمية</span>
+        </div>
         <div class="courses-list" id="courses-container">
-            <!-- تُجلب ديناميكياً -->
+            <!-- تُجلب ديناميكياً من قواعد البيانات -->
         </div>
     </section>
 
-    <!-- التواصل -->
+    <!-- قسم التواصل -->
     <footer id="contact" class="container">
-        <h2 class="section-title"><i class="fa-solid fa-address-card"></i> <span data-ar="معلومات التواصل" data-en="Contact Information">معلومات التواصل</span></h2>
-        <div class="contact-grid">
-            <a href="tel:+966555234785" class="contact-card">
+        <div class="contact-box">
+            <h2 data-ar="هل لديك مشروع أو فرصة عمل؟" data-en="Have a project or work opportunity?">هل لديك مشروع أو فرصة عمل؟</h2>
+            <p data-ar="حياك الله تواصل معي." data-en="Welcome, please contact me.">حياك الله تواصل معي.</p>
+            
+          <a href="tel:+966555234785" class="contact-card">
                 <i class="fa-solid fa-phone"></i>
                 <div>
-                    <span style="display:block; font-size:0.75rem; color:var(--text-muted);" data-ar="الجوال" data-en="Phone">الجوال</span>
-                    <strong>+966 55 523 4785</strong>
+                    <span data-ar="الهاتف" data-en="Phone">الهاتف</span>
+                    <!-- أضفنا dir="ltr" وسلسلة الرقم الصحيحة -->
+                    <strong dir="ltr" style="display: inline-block;">+966 55 523 4785</strong>
                 </div>
             </a>
-            <a href="mailto:mmdoh4785@gmail.com" class="contact-card">
-                <i class="fa-solid fa-envelope"></i>
-                <div>
-                    <span style="display:block; font-size:0.75rem; color:var(--text-muted);" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</span>
-                    <strong>mmdoh4785@gmail.com</strong>
-                </div>
-            </a>
-            <a href="https://www.linkedin.com/in/mamdouh-assal/" target="_blank" class="contact-card">
-                <i class="fa-brands fa-linkedin"></i>
-                <div>
-                    <span style="display:block; font-size:0.75rem; color:var(--text-muted);" data-ar="شبكة الأعمال" data-en="Network">شبكة الأعمال</span>
-                    <strong data-ar="حساب LinkedIn" data-en="LinkedIn Profile">حساب LinkedIn</strong>
-                </div>
-            </a>
-        </div>
+            
+                <a href="mailto:mmdoh4785@gmail.com" class="contact-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <span data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</span>
+                        <strong>mmdoh4785@gmail.com</strong>
+                    </div>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <div>
+                        <span data-ar="شبكة الأعمال" data-en="Network">شبكة الأعمال</span>
+                        <strong data-ar="حساب LinkedIn" data-en="LinkedIn Profile">حساب LinkedIn</strong>
+                    </div>
+                </a>
+            </div>
 
+           
+        </div>
     </footer>
 
     <script src="script.js"></script>
