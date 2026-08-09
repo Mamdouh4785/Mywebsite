@@ -364,42 +364,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_submit'])) {
             .then(r => r.json()).then(res => { if(res.status === 'success') { showToast('🗑️ تم الحذف'); loadAdminCourses(); } });
         }
     }
+// معالجة رفع السيرة الذاتية
+    const cvForm = document.getElementById('cv-form');
+    if(cvForm) {
+        cvForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const fileInput = document.getElementById('cv-file');
+            
+            if(!fileInput.files || fileInput.files.length === 0) {
+                alert('الرجاء اختيار ملف PDF أولاً');
+                return;
+            }
 
-    // رفع CV
-// جلب حالة السيرة الذاتية وإظهار زر الحذف إذا كانت موجودة
-    function checkCVStatus() {
-        fetch('get_settings.php')
+            const formData = new FormData();
+            formData.append('cv_file', fileInput.files[0]);
+
+            fetch('upload_cv.php', { method: 'POST', body: formData })
             .then(r => r.json())
-            .then(data => {
-                const cvStatus = document.getElementById('cv-status');
-                const deleteBtn = document.getElementById('delete-cv-btn');
-                
-                if (data && data.cv_file) {
-                    cvStatus.innerHTML = `<p style="color: var(--accent);"><i class="fa-solid fa-check-circle"></i> توجد سيرة ذاتية مرفوعة حالياً: <a href="${data.cv_file}" target="_blank" style="color: var(--primary);">معاينة الملف 📄</a></p>`;
-                    deleteBtn.style.display = 'block';
+            .then(res => {
+                if(res.status === 'success') { 
+                    showToast('📄 تم رفع وتحديث السيرة الذاتية بنجاح!'); 
+                    cvForm.reset(); 
+                    if(typeof checkCVStatus === 'function') checkCVStatus(); // تحديث المعاينة فوراً
                 } else {
-                    cvStatus.innerHTML = `<p style="color: var(--text-sub);"><i class="fa-solid fa-info-circle"></i> لا توجد سيرة ذاتية مرفوعة حالياً.</p>`;
-                    deleteBtn.style.display = 'none';
+                    alert(res.message);
                 }
-            });
+            })
+            .catch(err => alert('حدث خطأ أثناء رفع الملف'));
+        });
     }
-
-    // تنفيذ حذف CV
-    function deleteCV() {
-        if(confirm('هل أنت تأكد من حذف السيرة الذاتية الحالية؟ سيتوقف زر التحميل لدى الزوار.')) {
-            fetch('delete_cv.php', { method: 'POST' })
-                .then(r => r.json())
-                .then(res => {
-                    if(res.status === 'success') {
-                        showToast('🗑️ تم حذف السيرة الذاتية بنجاح!');
-                        checkCVStatus();
-                    }
-                });
-        }
-    }
-
-    // تشغيل فحص حالة CV عند التحميل
-    checkCVStatus();
 
     loadAdminProjects();
     loadAdminCourses();
