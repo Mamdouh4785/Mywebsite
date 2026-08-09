@@ -3,15 +3,20 @@ let currentLang = localStorage.getItem('lang') || 'ar';
 document.addEventListener('DOMContentLoaded', () => {
     fetch('track_visitor.php').catch(err => console.log(err));
     
-    // جلب ملف الـ CV المحدث
+  // جلب ملف الـ CV المحدث
     fetch('get_settings.php')
         .then(r => r.json())
         .then(data => {
-            if(data && data.cv_file) {
-                document.getElementById('cv-download-btn').setAttribute('href', data.cv_file);
+            const cvBtn = document.getElementById('cv-download-btn');
+            if(cvBtn) {
+                if(data && data.cv_file) {
+                    cvBtn.setAttribute('href', data.cv_file);
+                    cvBtn.style.display = 'inline-flex'; // إظهار الزر إذا كانت السيرة الذاتية موجودة
+                } else {
+                    cvBtn.style.display = 'none'; // إخفاء الزر تماماً عند حذفها
+                }
             }
         });
-
     applyLanguage(currentLang);
 
     document.getElementById('lang-toggle-btn').addEventListener('click', () => {
